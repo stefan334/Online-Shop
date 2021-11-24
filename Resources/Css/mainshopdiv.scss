@@ -1,0 +1,35 @@
+.column1 {
+    grid-area: column1;
+    // background-color: $color1;
+    opacity: 90%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+
+.column2 {
+    text-align: center;
+    grid-area: column2;
+    img {
+        outline: 3px solid $color3;
+        box-shadow: 0px 0px 10px 7px rgba(0, 0, 0, 0.521);
+        width: 97%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+}
+
+.column3 {
+    text-align: center;
+    grid-area: column3;
+    overflow: auto;
+    padding: 10px;
+    background-color: $color1;
+}

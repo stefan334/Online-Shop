@@ -1,0 +1,49 @@
+WEBVTT - Some title
+
+STYLE
+::cue {
+  color: white;
+  background-color:transparent;
+  text-shadow:10px 2px 5px black, 10px 2px black;
+  font-weight:600;
+  font-size:130%;
+  text-align:center;
+  
+  
+}
+
+
+STYLE
+::cue(#unu) {
+	
+    line-height:70px;
+}
+
+STYLE
+::cue(#doi) {
+
+  
+}
+
+STYLE
+::cue(#trei){
+	line-height:20px;
+}
+
+
+
+
+
+unu
+00:00.000 --> 00:03.000 align:center
+Stim ca este o perioada grea...
+
+
+00:04.000 --> 00:10.000 line:10%
+De aceea tocmai ne-am deschis magazinul online
+
+
+00:06.000 --> 00:10.000 line:-1 
+Pentru a va putea bucura cu usurinta de cele mai tari haine
+
+

@@ -1,0 +1,69 @@
+#watermark {
+  display: none;
+}
+
+#banner {
+  position: absolute;
+  right: 0%;
+  width: 50vw;
+  top: 0%;
+  z-index: 1000;
+  border: 4px solid black;
+  border-style: double;
+}
+
+@media print {
+  video,
+  img,
+  iframe {
+    display: none;
+  }
+  main #top-button {
+    display: none;
+  }
+  header {
+    page-break-after: always;
+  }
+  header nav {
+    position: absolute;
+  }
+  header .logo {
+    text-align: center;
+  }
+  header .main {
+    display: block;
+    list-style-type: disc;
+  }
+  header .main .submeniu {
+    list-style-type: disc;
+    display: block;
+    background: none;
+    color: black;
+  }
+  header .main .submeniu ul {
+    display: block;
+  }
+  header .main .submeniu li {
+    display: block;
+  }
+  header .main .submeniu li a {
+    display: block;
+  }
+  a {
+    text-decoration: none;
+  }
+  #watermark {
+    text-align: center;
+    display: block;
+    position: fixed;
+    bottom: 45%;
+    right: 20%;
+    color: rgba(0, 0, 0, 0.3);
+    width: 60%;
+    height: 10%;
+  }
+  footer {
+    page-break-before: always;
+  }
+}
+/*# sourceMappingURL=print.css.map */

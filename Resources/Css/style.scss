@@ -1,0 +1,132 @@
+$color1: #AD71A5;
+$color2: #451311;
+$color3: #E3C9C8;
+$color4: #b2c793;
+$color5: #dce07e;
+@import "./zona1";
+@import "./header";
+@import "./main";
+@import "./mainshopdiv";
+@import "./print";
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color3;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.maindiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh 30vh 30vh 30vh auto;
+    grid-template-areas: "zona1 zona1 zona1" "zona3 zona2 zona4" "zona5 zona2 zona4" "zona5 zona6 zona7" "zona8 zona8 zona8";
+}
+
+.mainshopdiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100vh 2vh 70vh;
+    grid-template-areas: "column1 column1 column1" "colbr colbr colbr" "column2 column3 column3";
+}
+
+.tableindex td,
+.tableindex th {
+    border: 1px solid black;
+}
+
+.video {
+    margin-top: 20px;
+    width: 30vw;
+    height: auto;
+}
+
+.video.poster {
+    object-fit: cover;
+}
+
+.tableindex {
+    border: 7px solid black;
+    border-style: inset;
+    border-collapse: collapse;
+    border-radius: 8px;
+    caption-side: bottom;
+    tr {
+        &:hover {
+            outline: 7px dotted rgba(178, 199, 147, 0.7);
+            animation: 0.5s linear rowanimation;
+        }
+    }
+}
+
+.tablediv {
+    margin-top: 20px;
+}
+
+.zona2 {
+    text-align: center;
+    grid-area: zona2;
+    padding: 10px;
+    background-color: $color1;
+    overflow: hidden;
+}
+
+.zona3 {
+    grid-area: zona3;
+    background-color: $color3;
+}
+
+.zona4 {
+    grid-area: zona4;
+    background-color: $color4;
+    padding: 10px;
+    text-align: center;
+}
+
+.zona5 {
+    padding: 10px;
+    grid-area: zona5;
+    background-color: $color5;
+}
+
+.zona6 {
+    grid-area: zona6;
+    background-color: $color1;
+    overflow: hidden;
+}
+
+.zona7 {
+    grid-area: zona7;
+}
+
+.zona8 {
+    grid-area: zona8;
+    background-color: $color3;
+}
+
+footer {
+    background-image: linear-gradient(180deg, $color3, rgba(121, 32, 76, 0.548));
+}
+
+@media(max-width:500px) {
+    .iframe {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+@keyframes rowanimation {
+    0% {
+        outline: 7px dotted rgba(178, 199, 147, 0);
+    }
+    100% {
+        outline: 7px dotted rgba(178, 199, 147, 0.7);
+    }
+}

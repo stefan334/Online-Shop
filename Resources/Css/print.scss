@@ -1,0 +1,70 @@
+#watermark {
+    display: none;
+}
+
+#banner {
+    position: absolute;
+    right: 0%;
+    width: 50vw;
+    top: 0%;
+    z-index: 1000;
+    border: 4px solid black;
+    border-style: double;
+}
+
+@media print {
+    video,
+    img,
+    iframe {
+        display: none;
+    }
+    main {
+        #top-button {
+            display: none;
+        }
+    }
+    header {
+        nav {
+            position: absolute;
+        }
+        .logo {
+            text-align: center;
+        }
+        .main {
+            display: block;
+            list-style-type: disc;
+            .submeniu {
+                list-style-type: disc;
+                display: block;
+                background: none;
+                color: black;
+                ul {
+                    display: block;
+                }
+                li {
+                    display: block;
+                    a {
+                        display: block;
+                    }
+                }
+            }
+        }
+        page-break-after: always;
+    }
+    a {
+        text-decoration: none;
+    }
+    #watermark {
+        text-align: center;
+        display: block;
+        position: fixed;
+        bottom: 45%;
+        right: 20%;
+        color: rgba(0, 0, 0, 0.3);
+        width: 60%;
+        height: 10%;
+    }
+    footer {
+        page-break-before: always;
+    }
+}
