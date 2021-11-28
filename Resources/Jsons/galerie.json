@@ -1,0 +1,81 @@
+{
+    "cale_galerie": "Resources/Images/Galerie",
+    "imagini": [{
+            "cale_imagine": "hanorac_roz.jpg",
+            "titlu": "Hanorac Roz",
+            "descriere": "Hanorac care este Roz",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "hanorac_negru.jpg",
+            "titlu": "Hanorac Negru",
+            "descriere": "Hanorac care este Negru",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "sapca_roz.jpg",
+            "titlu": "Sapca Roz",
+            "descriere": "Sapca care este Roz",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "jeans_barbati.jpg",
+            "titlu": "Jeans Barbati",
+            "descriere": "Jeansi de barbati",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "jeans_rupti_femei.jpg",
+            "titlu": "Jeansi Rupti femei",
+            "descriere": "Jeansi Rupti pentru femei",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "jeans_rupti_femei2.jpg",
+            "titlu": "Jeansi Rupti femei",
+            "descriere": "Hanorac care este Negru",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "caciula.jpg",
+            "titlu": "Caciula",
+            "descriere": "Caciula colorata",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "outfit1.jpg",
+            "titlu": "Outfit Vara",
+            "descriere": "Outfit pentru vara",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "outfit2.jpg",
+            "titlu": "Outfit casual",
+            "descriere": "Outfit Casual",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "outfit3.jpg",
+            "titlu": "Outfit Vara",
+            "descriere": "Outfit pentru vara",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "pulover.jpg",
+            "titlu": "Pulover Maro",
+            "descriere": "Pulover care este Maro",
+            "timp": "09:00-12:00"
+        },
+        {
+            "cale_imagine": "tricou_portocaliu.jpg",
+            "titlu": "Tricou Portocaliu",
+            "descriere": "Tricou care este Portocaliu",
+            "timp": "09:00-12:00"
+        }
+
+    ]
+
+
+
+
+}

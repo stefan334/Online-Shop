@@ -544,6 +544,35 @@ body {
   margin-top: 20px;
 }
 
+.gallery {
+  margin-bottom: 50px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 60vh auto;
+      grid-template-rows: 60vh auto;
+  grid-row-gap: 2em;
+  grid-column-gap: 0.5em;
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery figcaption {
+  text-align: center;
+}
+
+.gallery :nth-child(6) {
+  visibility: hidden;
+}
+
+.gallery :nth-child(7) {
+  visibility: hidden;
+}
+
 .zona2 {
   text-align: center;
   -ms-grid-row: 2;
