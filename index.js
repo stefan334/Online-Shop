@@ -1,7 +1,7 @@
 const { create } = require('domain');
 const express = require('express');
 const fs = require('fs');
-const sharp = require('sharp');
+//const sharp = require('sharp');
 
 app = express();
 
@@ -25,7 +25,7 @@ function createImages() {
 
         if (!fs.existsSync(imag.mic)) {
             console.log(__dirname + "/" + imag.mare);
-            sharp(__dirname + "/" + imag.mare).resize(dim_mic).toFile(__dirname + "/" + imag.mic);
+            // sharp(__dirname + "/" + imag.mare).resize(dim_mic).toFile(__dirname + "/" + imag.mic);
         }
 
     }
