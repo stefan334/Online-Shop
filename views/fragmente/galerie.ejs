@@ -1,0 +1,21 @@
+<div class="gallery">
+    <%  let i = 1 
+    for (let imag of locals.imagini){
+        
+        %>
+        <figure class="imag<%-i%>">
+            <picture>
+                <source srcset="/<%- imag.mic%>" media="(max-width:500px)" />
+                <source srcset="/<%- imag.medie%>" media="(max-width:1279px)" />
+
+                <img src="/<%- locals.cale + imag.cale_imagine%>" alt="<%- imag.descriere%>" title="<%- imag.titlu%>">
+            </picture>
+            <figcaption>
+                <%-imag.titlu%>
+            </figcaption>
+        </figure>
+        <% i=i+1;
+    if(i>10)
+    break;} %>
+
+</div>
