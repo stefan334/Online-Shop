@@ -1,20 +1,27 @@
-const { create } = require('domain');
 const express = require('express');
 const fs = require('fs');
 const sharp = require('sharp');
+const ejs = require('ejs');
+const sass = require('sass');
+const path = require('path');
 
-app = express();
+
+var app = express();
 
 app.set("view engine", "ejs");
 
-app.use("/Resources", express.static(__dirname + "/Resources"))
+
+
+
+app.use("/Resources", express.static(__dirname + "/Resources"));
+
 
 function createImages() {
     var buf = fs.readFileSync(__dirname + "/Resources/Jsons/galerie.json").toString("utf-8");
     obImagini = JSON.parse(buf); //global
     console.log(obImagini);
     for (let imag of obImagini.imagini) {
-        console.log("a intrat")
+        // console.log("a intrat")
         let nume_imag, extensie;
         [nume_imag, extensie] = imag.cale_imagine.split(".");
         let dim_mic = 150;
@@ -43,17 +50,17 @@ function createImages() {
 function chooseImages() {
     var date = new Date();
     var today = Date.parse('01/01/2011 ' + date.getHours() + ':' + date.getMinutes());
-    console.log("Asta e azi " + today);
+    // console.log("Asta e azi " + today);
     var timp1, timp2;
     var imagini;
     for (let i = 0; i < obImagini.imagini.length; i++) {
 
         [timp1, timp2] = obImagini.imagini[i].timp.split("-");
-        console.log(today + " " + Date.parse('01/01/2011 ' + timp1));
+        // console.log(today + " " + Date.parse('01/01/2011 ' + timp1));
         if (today >= Date.parse('01/01/2011 ' + timp1) && today <= Date.parse('01/01/2011 ' + timp2)) {
             // console.log("Am intrat aicea");
         } else {
-            console.log("AM ELIMINAT UNUL");
+            // console.log("AM ELIMINAT UNUL");
             obImagini.imagini.splice(i, 1);
             i--;
         }
@@ -65,6 +72,43 @@ function chooseImages() {
 }
 createImages();
 chooseImages();
+
+app.get("*/galerie_animata.css", function(req, res) {
+    console.log("MI A INTRAT IN galerieanimata");
+    res.setHeader("Content-Type", "text/css");
+    let sirScss = fs.readFileSync("./Resources/Css/galerie_animata.scss").toString("utf-8");
+    numarImagini = [4, 9, 16];
+    let numarRandom = numarImagini[Math.floor(Math.random() * numarImagini.length)];
+
+    console.log(numarRandom);
+    let rezScss = ejs.render(sirScss, { numarRandom: numarRandom });
+    fs.writeFileSync("./temp/galerie_animata.scss", rezScss);
+
+    let cale_css = path.join(__dirname, "temp", "galerie_animata.css");
+    let cale_scss = path.join(__dirname, "temp", "galerie_animata.scss");
+
+    sass.render({ file: cale_scss, sourceMap: true }, function(err, rezCompilare) {
+        console.log(rezCompilare);
+        if (err) {
+            console.log(`eroare: ${err.message}`);
+            res.end();
+            return;
+        }
+        fs.writeFileSync(cale_css, rezCompilare.css, function(err) {
+            if (err) { console.log(err); }
+        });
+        res.sendFile(cale_css);
+    });
+
+
+});
+
+app.get("/galerie_animata.css.map", function(req, res) {
+    let cale = path.join(__dirname, "temp", "galerie_animata.css.map");
+    res.sendFile(cale);
+
+});
+
 app.get(["/", "/index", "/home"], function(req, res) {
     console.log(req.url);
     //------galerie
@@ -73,6 +117,9 @@ app.get(["/", "/index", "/home"], function(req, res) {
     res.render("pagini/index.ejs", { ip: req.ip, imagini: obImagini.imagini, cale: obImagini.cale_galerie + "/" });
 
 });
+
+
+
 
 app.get("/gallery", function(req, res) {
     console.log(req.url);
@@ -107,6 +154,8 @@ app.get("/*", function(req, res) {
     });
 
 });
+
+
 
 
 app.listen(8080);
