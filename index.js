@@ -103,7 +103,7 @@ app.get("*/galerie_animata.css", function(req, res) {
 
 });
 
-app.get("/galerie_animata.css.map", function(req, res) {
+app.get("*/galerie_animata.css.map", function(req, res) {
     let cale = path.join(__dirname, "temp", "galerie_animata.css.map");
     res.sendFile(cale);
 
