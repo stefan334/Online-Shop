@@ -11,7 +11,41 @@ var app = express();
 app.set("view engine", "ejs");
 
 
+app.get("*/galerie_animata.css", function(req, res) {
+    console.log("MI A INTRAT IN galerieanimata");
+    res.setHeader("Content-Type", "text/css");
+    let sirScss = fs.readFileSync("./Resources/Css/galerie_animata.scss").toString("utf-8");
+    numarImagini = [4, 9, 16];
+    let numarRandom = numarImagini[Math.floor(Math.random() * numarImagini.length)];
 
+    console.log(numarRandom);
+    let rezScss = ejs.render(sirScss, { numarRandom: numarRandom });
+    fs.writeFileSync("./temp/galerie_animata.scss", rezScss);
+
+    let cale_css = path.join(__dirname, "temp", "galerie_animata.css");
+    let cale_scss = path.join(__dirname, "temp", "galerie_animata.scss");
+
+    sass.render({ file: cale_scss, sourceMap: true }, function(err, rezCompilare) {
+        console.log(rezCompilare);
+        if (err) {
+            console.log(`eroare: ${err.message}`);
+            res.end();
+            return;
+        }
+        fs.writeFileSync(cale_css, rezCompilare.css, function(err) {
+            if (err) { console.log(err); }
+        });
+        res.sendFile(cale_css);
+    });
+
+
+});
+
+app.get("*/galerie_animata.css.map", function(req, res) {
+    let cale = path.join(__dirname, "temp", "galerie_animata.css.map");
+    res.sendFile(cale);
+
+});
 
 app.use("/Resources", express.static(__dirname + "/Resources"));
 
@@ -73,41 +107,7 @@ function chooseImages() {
 createImages();
 chooseImages();
 
-app.get("*/galerie_animata.css", function(req, res) {
-    console.log("MI A INTRAT IN galerieanimata");
-    res.setHeader("Content-Type", "text/css");
-    let sirScss = fs.readFileSync("./Resources/Css/galerie_animata.scss").toString("utf-8");
-    numarImagini = [4, 9, 16];
-    let numarRandom = numarImagini[Math.floor(Math.random() * numarImagini.length)];
 
-    console.log(numarRandom);
-    let rezScss = ejs.render(sirScss, { numarRandom: numarRandom });
-    fs.writeFileSync("./temp/galerie_animata.scss", rezScss);
-
-    let cale_css = path.join(__dirname, "temp", "galerie_animata.css");
-    let cale_scss = path.join(__dirname, "temp", "galerie_animata.scss");
-
-    sass.render({ file: cale_scss, sourceMap: true }, function(err, rezCompilare) {
-        console.log(rezCompilare);
-        if (err) {
-            console.log(`eroare: ${err.message}`);
-            res.end();
-            return;
-        }
-        fs.writeFileSync(cale_css, rezCompilare.css, function(err) {
-            if (err) { console.log(err); }
-        });
-        res.sendFile(cale_css);
-    });
-
-
-});
-
-app.get("*/galerie_animata.css.map", function(req, res) {
-    let cale = path.join(__dirname, "temp", "galerie_animata.css.map");
-    res.sendFile(cale);
-
-});
 
 app.get(["/", "/index", "/home"], function(req, res) {
     console.log(req.url);

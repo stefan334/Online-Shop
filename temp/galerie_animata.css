@@ -44,57 +44,64 @@
 }
 
 @keyframes gal2 {
-  0% {
+  6.25% {
     top: 0px;
-    left: 0;
+    left: 0px;
   }
-  15.67% {
-    top: -600px;
-    left: 0;
+  12.5% {
+    top: 1200px;
+    left: 0px;
   }
-  16.67% {
-    /* 100/6 */
-    top: -600px;
-    left: 0;
+  18.75% {
+    top: 2400px;
+    left: 0px;
   }
-  32.33% {
-    top: -600px;
-    left: -400px;
+  25% {
+    top: 3600px;
+    left: 0px;
   }
-  33.33% {
-    top: -600px;
-    left: -400px;
+  31.25% {
+    top: 4800px;
+    left: 0px;
   }
-  49% {
-    top: 0px;
-    left: -400px;
+  37.5% {
+    top: 6000px;
+    left: 0px;
+  }
+  43.75% {
+    top: 7200px;
+    left: 0px;
   }
   50% {
-    top: 0px;
-    left: -400px;
-  }
-  65.67% {
-    top: -600px;
-    left: -400px;
-  }
-  66.67% {
-    top: -600px;
-    left: -400px;
-  }
-  82.33% {
-    top: -600px;
+    top: 8400px;
     left: 0px;
   }
-  83.33% {
-    top: -600px;
+  56.25% {
+    top: 9600px;
     left: 0px;
   }
-  99% {
-    top: -1200px;
+  62.5% {
+    top: 10800px;
     left: 0px;
   }
-  100% {
-    top: -1200px;
+  68.75% {
+    top: 12000px;
+    left: 0px;
+  }
+  75% {
+    top: 13200px;
+    left: 0px;
+  }
+  81.25% {
+    top: 14400px;
+    left: 0px;
+  }
+  87.5% {
+    top: 15600px;
+    left: 0px;
+  }
+  93.75% {
+    top: 16800px;
     left: 0px;
   }
 }

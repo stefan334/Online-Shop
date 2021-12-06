@@ -43,63 +43,82 @@
     bottom: 0px;
 }
 
-// $pas: 100/9;
+$pas: 100/16*1%;
+$pasinit: 100/16*1%;
+$top: 0;
+$left: 0;
 @keyframes gal2 {
-    0% {
-        top: 0px;
-        left: 0;
-    }
-    15.67% {
-        top: -600px;
-        left: 0;
-    }
-    16.67% {
-        /* 100/6 */
-        top: -600px;
-        left: 0;
-    }
-    32.33% {
-        top: -600px;
-        left: -400px;
-    }
-    33.33% {
-        top: -600px;
-        left: -400px;
-    }
-    49% {
-        top: 0px;
-        left: -400px;
-    }
-    50% {
-        top: 0px;
-        left: -400px;
-    }
-    65.67% {
-        top: -600px;
-        left: -400px;
-    }
-    66.67% {
-        top: -600px;
-        left: -400px;
-    }
-    82.33% {
-        top: -600px;
-        left: 0px;
-    }
-    83.33% {
-        top: -600px;
-        left: 0px;
-    }
-    99% {
-        top: -1200px;
-        left: 0px;
-    }
-    100% {
-        top: -1200px;
-        left: 0px;
+    @while $pas < 100 {
+        #{$pas} {
+            top: $top * 1px;
+            left: $left* 1px;
+        }
+        @if $top==0 and $left==0 {
+            $left: $left+1200;
+        }
+        @else if $top==0 or $left==1200 {
+            $left: $left -600;
+        }
+        $pas: $pas+$pasinit;
+        $top: $top+1200;
     }
 }
 
+// @keyframes gal2 {
+//     0% {
+//         top: 0px;
+//         left: 0;
+//     }
+//     15.67% {
+//         top: -600px;
+//         left: 0;
+//     }
+//     16.67% {
+//         /* 100/6 */
+//         top: -600px;
+//         left: 0;
+//     }
+//     32.33% {
+//         top: -600px;
+//         left: -400px;
+//     }
+//     33.33% {
+//         top: -600px;
+//         left: -400px;
+//     }
+//     49% {
+//         top: 0px;
+//         left: -400px;
+//     }
+//     50% {
+//         top: 0px;
+//         left: -400px;
+//     }
+//     65.67% {
+//         top: -600px;
+//         left: -400px;
+//     }
+//     66.67% {
+//         top: -600px;
+//         left: -400px;
+//     }
+//     82.33% {
+//         top: -600px;
+//         left: 0px;
+//     }
+//     83.33% {
+//         top: -600px;
+//         left: 0px;
+//     }
+//     99% {
+//         top: -1200px;
+//         left: 0px;
+//     }
+//     100% {
+//         top: -1200px;
+//         left: 0px;
+//     }
+// }
 #galerie2 figure {
     height: 600px;
     position: relative;
