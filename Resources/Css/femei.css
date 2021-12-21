@@ -103,4 +103,203 @@ h2 {
   height: 450px;
   margin: auto;
 }
+
+.inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+
+label {
+  margin-right: 1%;
+}
+
+.search {
+  margin-right: 5%;
+  margin-bottom: 50px;
+  width: 10%;
+}
+
+.range {
+  margin-right: 5%;
+  margin-bottom: 50px;
+}
+
+.radiogroup {
+  margin-right: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkedGroup {
+  margin-right: 1%;
+}
+
+.checkLabel {
+  margin-right: 0%;
+}
+
+.isImported {
+  margin-right: 1%;
+  margin-right: none;
+}
+
+.isNotImported {
+  margin-right: 1%;
+  margin-right: none;
+}
+
+.selectSimplu {
+  width: 10%;
+  height: 5%;
+}
+
+.descriere {
+  display: none;
+}
+
+.filterButton {
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  cursor: pointer;
+  margin-left: 2%;
+  background-color: #E3C9C8;
+  color: black;
+  border: 2px solid #AD71A5;
+  width: auto;
+  height: 10%;
+}
+
+.filterButton:hover {
+  background-color: #AD71A5;
+  color: white;
+}
+
+[type='range'] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 20%;
+}
+
+[type='range']::-moz-focus-outer {
+  border: 0;
+}
+
+[type='range']:focus {
+  outline: 0;
+}
+
+[type='range']:focus::-webkit-slider-runnable-track {
+  background: #b681af;
+}
+
+[type='range']:focus::-ms-fill-lower {
+  background: #AD71A5;
+}
+
+[type='range']:focus::-ms-fill-upper {
+  background: #b681af;
+}
+
+[type='range']::-webkit-slider-runnable-track {
+  cursor: default;
+  height: 8px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: 20%;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+          box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+  background: #AD71A5;
+  border: 2px solid #cfd8dc;
+  border-radius: 5px;
+}
+
+[type='range']::-webkit-slider-thumb {
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2), 0 0 4px rgba(13, 13, 13, 0.2);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2), 0 0 4px rgba(13, 13, 13, 0.2);
+  background: #451311;
+  border: 2px solid #E3C9C8;
+  border-radius: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: default;
+  height: 24px;
+  width: 24px;
+  -webkit-appearance: none;
+  margin-top: -10px;
+}
+
+[type='range']::-moz-range-track {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+  cursor: default;
+  height: 8px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: 20%;
+  background: #AD71A5;
+  border: 2px solid #cfd8dc;
+  border-radius: 5px;
+  height: 4px;
+}
+
+[type='range']::-moz-range-thumb {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2), 0 0 4px rgba(13, 13, 13, 0.2);
+  background: #451311;
+  border: 2px solid #E3C9C8;
+  border-radius: 12px;
+  box-sizing: border-box;
+  cursor: default;
+  height: 24px;
+  width: 24px;
+}
+
+[type='range']::-ms-track {
+  cursor: default;
+  height: 8px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  width: 20%;
+  background: transparent;
+  border-color: transparent;
+  border-width: 12px 0;
+  color: transparent;
+}
+
+[type='range']::-ms-fill-lower {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+  background: #a4619b;
+  border: 2px solid #cfd8dc;
+  border-radius: 10px;
+}
+
+[type='range']::-ms-fill-upper {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2), 0 0 1px rgba(13, 13, 13, 0.2);
+  background: #AD71A5;
+  border: 2px solid #cfd8dc;
+  border-radius: 10px;
+}
+
+[type='range']::-ms-thumb {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2), 0 0 4px rgba(13, 13, 13, 0.2);
+  background: #451311;
+  border: 2px solid #E3C9C8;
+  border-radius: 12px;
+  box-sizing: border-box;
+  cursor: default;
+  height: 24px;
+  width: 24px;
+  margin-top: 2px;
+}
+
+[type='range']:disabled::-webkit-slider-thumb, [type='range']:disabled::-moz-range-thumb, [type='range']:disabled::-ms-thumb, [type='range']:disabled::-webkit-slider-runnable-track, [type='range']:disabled::-ms-fill-lower, [type='range']:disabled::-ms-fill-upper {
+  cursor: not-allowed;
+}
 /*# sourceMappingURL=femei.css.map */

@@ -26,13 +26,86 @@
                     <img src="/Resources/Images/background_femei.jpg" alt="clothes">
 
                 </section>
+                <script>
+                    window.onload = function() {
 
+                        var button = document.getElementsByClassName("filterButton");
+                        console.log(button);
+                        button.onclick = function() {
+                            console.log("a mers");
+                            var articole = document.getElementsByClassName("produs");
+                            for (let articol of articole) {
+                                articol.style.display = "none";
+
+
+
+                            }
+                        }
+                    }
+                </script>
 
 
 
 
                 <div class="content">
                     <h2>Femei</h2>
+
+                    <div class="inputs">
+                        <label for="search">Cauta</label>
+                        <input class="search" type="text">
+
+                        <label for="range">Pret pana la: </label>
+                        <input class="range" type="range" step="10" min="50" max="400" value="400">
+
+                        <label for="radiogroup">Marimea: </label>
+                        <div class="radiogroup">
+                            <input type="radio" id="choice1" name="marime" value="S">
+                            <label for="choice1">S</label>
+
+                            <input type="radio" id="choice2" name="marime" value="M">
+                            <label for="choice2">M</label>
+
+                            <input type="radio" id="choice3" name="marime" value="L">
+                            <label for="choice3">L</label>
+
+                            <input type="radio" id="choice4" name="marime" value="none" checked>
+                            <label for="choice4">none</label>
+                        </div>
+                        <label class="checkedGroup">
+                           <p>Este Importat: </p>
+                        </label>
+
+                        <label class="checkLabel" for="isImported">Da </label>
+                        <input class="isImported" name="gr_chck" type="checkbox" checked value="true">
+
+                        <label class="checkLabel" for="isNotImported">Nu </label>
+                        <input class="isNotImported" name="gr_chck" type="checkbox" checked value="true">
+
+                        <!-- <label for="textarea">textarea</label>
+                        <textarea class="textarea">Ceva in textarea </textarea>  -->
+
+                        <label for="selectSimplu">Categoria: </label>
+                        <select class="selectSimplu">
+                            <option value="1" selected=""></option>
+                            <option value="2">Hanorace Si Geci</option>
+                            <option value="3">Tricouri Si Maieuri</option>
+                            <option value="4">Bluze Si Pulovere</option>
+                            <option value="5">Accesorii</option>
+                            <option value="5">Pantaloni</option>
+                            <option value="5">Rochii</option>
+                        </select>
+
+                        <!-- <select id="i_sel_multiplu" multiple="" size="5">
+                            <option value="1">1</option>
+                            <option value="2" >2</option>
+                            <option value="3">3</option>
+                            <option value="4" selected="">4</option>
+                            <option value="5">5</option>
+                        </select> -->
+
+                        <button class="filterButton">Filtreaza</button>
+
+                    </div>
 
                     <div class="grid-produse">
                         <% for(let prod of locals.produse) { %>
@@ -42,10 +115,11 @@
                                     <p class="pret">Pret: <span class="val-pret"><%-prod.price%></span> RON</p>
                                     <p class="dimensiune">Marime: <span class="val-dimensiune"><%-prod.size%></span></p>
                                 </div>
-                                <p class="categorie">Categorie: <span class=v al-categorie><%- prod.category%></span></p>
+                                <p class="categorie">Categorie: <span class=val-categorie><%- prod.category%></span></p>
                                 <figure>
                                     <a href="/femei/<%-prod.id %>"><img src="/Resources/Images/Products/Femei/<%-prod.imag%>" alt=""></a>
                                 </figure>
+                                <p class="descriere">Descriere: <span class=val-descriere><%- prod.description%></span></p>
                                 <label class="selecteaza-cos">
                                     Selecteaza: <br>
                                     <input type="checkbox" class= "select-cos" value="<%- prod.id%>" autocomplete="off">
@@ -70,5 +144,7 @@
 
 
 </body>
+
+
 
 </html>
