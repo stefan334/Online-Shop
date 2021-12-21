@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta-->
+    <meta name="description" content="Cele mai fresh haine de vara sau de iarna. Hanorace, bluze, tricouri.">
+    <meta name="keywords" content="haine, NULL, oferta, imbracaminte">
+
+    <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" href="/Resources/Css/femei.css">
+
+        <!--3-->
+
+</head>
+
+<body>
+
+    <!--7-->
+    <%- include("../fragmente/header.ejs") %>
+
+
+        <main>
+            <div class="mainfemei">
+
+                <section class="column1">
+                    <img src="/Resources/Images/background_femei.jpg" alt="clothes">
+
+                </section>
+
+
+
+
+
+                <div class="content">
+                    <h2>Femei</h2>
+
+                    <div class="grid-produse">
+                        <% for(let prod of locals.produse) { %>
+                            <article class="produs">
+                                <h3 class="nume"><a href="/femei/<%-prod.id%>"><span class = "val-nume"><%-prod.name%></span></a></h3>
+                                <div class="info-prod">
+                                    <p class="pret">Pret: <span class="val-pret"><%-prod.price%></span> RON</p>
+                                    <p class="dimensiune">Marime: <span class="val-dimensiune"><%-prod.size%></span></p>
+                                </div>
+                                <p class="categorie">Categorie: <span class=v al-categorie><%- prod.category%></span></p>
+                                <figure>
+                                    <a href="/femei/<%-prod.id %>"><img src="/Resources/Images/Products/Femei/<%-prod.imag%>" alt=""></a>
+                                </figure>
+                                <label class="selecteaza-cos">
+                                    Selecteaza: <br>
+                                    <input type="checkbox" class= "select-cos" value="<%- prod.id%>" autocomplete="off">
+                                </label>
+
+                            </article>
+
+                            <%}%>
+
+
+                    </div>
+
+                </div>
+
+                <br>
+
+
+            </div>
+        </main>
+
+        <%- include("../fragmente/footer.ejs") %>
+
+
+</body>
+
+</html>

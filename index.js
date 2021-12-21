@@ -4,11 +4,50 @@ const sharp = require('sharp');
 const ejs = require('ejs');
 const sass = require('sass');
 const path = require('path');
+const { Client } = require('pg');
 
 
 var app = express();
 
 app.set("view engine", "ejs");
+
+var client = new Client({ user: "ivan334", password: 'stefan334', host: 'localhost', port: 5432, database: 'magazin_haine' });
+client.connect();
+
+
+
+
+app.get("/femei", function(req, res) {
+    //------galerie
+    var conditie = `where 1=1 `;
+    console.log(req.query.tip);
+    if (req.query.tip) {
+        conditie += `and category='{${req.query.tip}}'`;
+    }
+
+    client.query(`SELECT * FROM PRODUSE ` + conditie, function(err, rez) {
+        console.log(rez.rows);
+        res.render("pagini/femei.ejs", { produse: rez.rows });
+        console.log("Am trimis");
+    });
+
+
+
+
+});
+
+app.get("/femei/:id", function(req, res) {
+    console.log(req.params);
+
+    client.query(`SELECT * FROM PRODUSE where id=${req.params.id}`, function(err, rez) {
+        console.log("inauntru select");
+        res.render("pagini/produs", { prod: rez.rows[0] });
+
+    });
+
+
+});
+
 
 
 app.get("*/galerie_animata.css", function(req, res) {

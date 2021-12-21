@@ -43,8 +43,8 @@
     bottom: 0px;
 }
 
-$pas: 100/16*1%;
-$pasinit: 100/16*1%;
+$pas: 100/4*1%;
+$pasinit: 100/4*1%;
 $top: 0;
 $left: 0;
 @keyframes gal2 {
@@ -60,7 +60,6 @@ $left: 0;
             $left: $left -600;
         }
         $pas: $pas+$pasinit;
-        $top: $top+1200;
     }
 }
 

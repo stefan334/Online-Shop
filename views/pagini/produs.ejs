@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--meta-->
+    <meta name="description" content="Cele mai fresh haine de vara sau de iarna. Hanorace, bluze, tricouri.">
+    <meta name="keywords" content="haine, NULL, oferta, imbracaminte">
+
+    <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" href="/Resources/Css/produs.css">
+
+        <!--3-->
+
+</head>
+
+<body>
+
+    <!--7-->
+    <%- include("../fragmente/header.ejs") %>
+
+
+        <main>
+
+            <div class="content">
+                <h2>Pagina Produs</h2>
+                <article class="art-produs">
+                    <figure>
+                        <a href="/femei/<%-prod.id %>"><img src="/Resources/Images/Products/Femei/<%-prod.imag%>" alt=""></a>
+                    </figure>
+                    <div class="descriere">
+                        <h3 class="nume"><a href="/femei/<%-prod.id%>"><span class = "val-nume"><%-prod.name%></span></a></h3>
+                        <p class="pret">Pret: <span class="val-pret"><%-prod.price%></span> RON</p>
+                        <p class="dimensiune">Marime: <span class="val-dimensiune"><%-prod.size%></span></p>
+                        <p class="desc">Descriere: <span class="val-descriere"><%-prod.description%></span></p>
+                        <p class="materiale">Materiale: <span class="val-materiale"><%-prod.materials%></span></p>
+                        <p class="imported">Produsul este importat: <span class="val-timp"><%if(prod.is_imported) {%> Da
+                            <%}if(!prod.is_imported){ %> Nu <%}%></span></p>
+                        <p class="data-adaugare">Adaugat pe: <span class="val-data"><time><%-prod.added_on%></time></span></p>
+
+
+
+
+                    </div>
+
+                </article>
+
+
+
+
+
+
+            </div>
+
+            <br>
+
+
+
+        </main>
+
+        <%- include("../fragmente/footer.ejs") %>
+
+
+</body>
+
+</html>
