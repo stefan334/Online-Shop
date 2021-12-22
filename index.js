@@ -8,8 +8,10 @@ const { Client } = require('pg');
 
 
 var app = express();
-
+const port = process.env.PORT || 8080;
 app.set("view engine", "ejs");
+
+
 
 var client = new Client({ user: "ivan334", password: 'stefan334', host: 'localhost', port: 5432, database: 'magazin_haine' });
 client.connect();
@@ -197,6 +199,6 @@ app.get("/*", function(req, res) {
 
 
 
-app.listen(8080);
+app.listen(port);
 
 console.log("Serverul a pornit");
