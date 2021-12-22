@@ -13,7 +13,18 @@ app.set("view engine", "ejs");
 
 
 
-var client = new Client({ user: "ivan334", password: 'stefan334', host: 'localhost', port: 5432, database: 'magazin_haine' });
+// var client = new Client({ user: "ivan334", password: 'stefan334', host: 'localhost', port: 5432, database: 'magazin_haine' });
+var client = new Client({
+    user: "wupkgabvvfnbjv",
+    password: '7ae44c0d17f5050db2e3dc2b8c54ba3b9eecf4ff78c140e91b2b999039f39aa5',
+    host: 'ec2-54-89-105-122.compute-1.amazonaws.com',
+    port: 5432,
+    database: 'd9bvsv9ta5db70',
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
 client.connect();
 
 
