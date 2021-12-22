@@ -23,60 +23,104 @@
 }
 
 #galerie2 .grid_3col {
+  display: -ms-grid;
   display: grid;
   width: 600px;
-  grid-template-columns: 400px 400px 400px;
-  grid-template-rows: 600px 600px 600px;
+  -ms-grid-columns: 400px 400px 400px;
+      grid-template-columns: 400px 400px 400px;
+  -ms-grid-rows: 600px 600px 600px;
+      grid-template-rows: 600px 600px 600px;
   grid-row-gap: 0;
   grid-column-gap: 0;
   position: absolute;
   top: 0;
   left: 0;
-  animation-name: gal2;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-duration: 28s;
+  -webkit-animation-name: gal2;
+          animation-name: gal2;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 28s;
+          animation-duration: 28s;
 }
 
 .galerie figcaption {
   bottom: 0px;
 }
 
-@keyframes gal2 {
-  11.1111111111% {
+@-webkit-keyframes gal2 {
+  11.11111% {
     top: 0px;
     left: 0px;
   }
-  22.2222222222% {
+  22.22222% {
     top: 0px;
     left: 0px;
   }
-  33.3333333333% {
+  33.33333% {
     top: 0px;
     left: 0px;
   }
-  44.4444444444% {
+  44.44444% {
     top: 0px;
     left: 0px;
   }
-  55.5555555556% {
+  55.55556% {
     top: 0px;
     left: 0px;
   }
-  66.6666666667% {
+  66.66667% {
     top: 0px;
     left: 0px;
   }
-  77.7777777778% {
+  77.77778% {
     top: 0px;
     left: 0px;
   }
-  88.8888888889% {
+  88.88889% {
     top: 0px;
     left: 0px;
   }
 }
+
+@keyframes gal2 {
+  11.11111% {
+    top: 0px;
+    left: 0px;
+  }
+  22.22222% {
+    top: 0px;
+    left: 0px;
+  }
+  33.33333% {
+    top: 0px;
+    left: 0px;
+  }
+  44.44444% {
+    top: 0px;
+    left: 0px;
+  }
+  55.55556% {
+    top: 0px;
+    left: 0px;
+  }
+  66.66667% {
+    top: 0px;
+    left: 0px;
+  }
+  77.77778% {
+    top: 0px;
+    left: 0px;
+  }
+  88.88889% {
+    top: 0px;
+    left: 0px;
+  }
+}
+
 #galerie2 figure {
   height: 600px;
   position: relative;
@@ -87,3 +131,4 @@
   width: 400px;
   height: 600px;
 }
+/*# sourceMappingURL=galerie_animata.css.map */

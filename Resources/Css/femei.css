@@ -157,6 +157,10 @@ label {
 }
 
 .descriere {
+  display: block;
+}
+
+.imported {
   display: none;
 }
 
@@ -170,17 +174,31 @@ label {
   -webkit-transition-duration: 0.4s;
           transition-duration: 0.4s;
   cursor: pointer;
-  margin-left: 2%;
+  margin-left: 1%;
   background-color: #E3C9C8;
   color: black;
   border: 2px solid #AD71A5;
-  width: auto;
-  height: 10%;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
 }
 
 .filterButton:hover {
   background-color: #AD71A5;
   color: white;
+}
+
+.textarea {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-right: 1%;
 }
 
 [type='range'] {

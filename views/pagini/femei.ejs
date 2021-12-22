@@ -31,15 +31,74 @@
 
                         var button = document.getElementsByClassName("filterButton");
                         console.log(button);
-                        button.onclick = function() {
+                        button[0].onclick = function() {
                             console.log("a mers");
                             var articole = document.getElementsByClassName("produs");
+
+                            var checkImport = document.getElementsByClassName("isImported");
+                            var checkNotImport = document.getElementsByClassName("isNotImported");
+                            var text = document.getElementsByClassName("search")[0].value;
+
+
+                            var regex = '\\b';
+                            regex += text;
+                            regex += '\\b';
+
+
+                            var textarea = document.getElementsByClassName("textarea")[0].value;
+
+
+                            console.log(checkImport[0].checked);
                             for (let articol of articole) {
                                 articol.style.display = "none";
+                                console.log(articol.getElementsByClassName("val-import")[0].innerHTML === 'true');
+                                if (checkImport[0].checked) {
+                                    if (articol.getElementsByClassName("val-import")[0].innerHTML === 'true') {
+                                        articol.style.display = "block";
 
+                                    }
+                                }
+                                if (checkNotImport[0].checked) {
+                                    if (!(articol.getElementsByClassName("val-import")[0].innerHTML === 'true')) {
+                                        articol.style.display = "block";
 
+                                    }
+                                }
+                                if (checkImport[0].checked && checkNotImport[0].checked) {
+                                    articol.style.display = "block";
+                                }
 
+                                for (let articol of articole) {
+                                    if (text) {
+                                        if (RegExp(regex, 'i').test(articol.getElementsByClassName("val-descriere")[0].innerHTML.toLowerCase())) {
+
+                                        } else {
+                                            articol.style.display = "none";
+                                        }
+                                    }
+                                }
+                                if (textarea) {
+                                    if (!(articol.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase().includes(textarea))) {
+                                        articol.style.display = "none";
+                                    }
+                                }
                             }
+                        }
+
+                        button[1].onclick = function() {
+                            var articole = document.getElementsByClassName("produs");
+                            var checkImport = document.getElementsByClassName("isImported")[0];
+                            var checkNotImport = document.getElementsByClassName("isNotImported")[0];
+                            var text = document.getElementsByClassName("search")[0];
+                            var textarea = document.getElementsByClassName("textarea")[0];
+                            checkImport.checked = true;
+                            checkNotImport.checked = true;
+                            text.value = '';
+                            textarea.value = '';
+                            for (let articol of articole) {
+                                articol.style.display = "block";
+                            }
+
                         }
                     }
                 </script>
@@ -51,7 +110,7 @@
                     <h2>Femei</h2>
 
                     <div class="inputs">
-                        <label for="search">Cauta</label>
+                        <label for="search">Descriere Produs: </label>
                         <input class="search" type="text">
 
                         <label for="range">Pret pana la: </label>
@@ -81,8 +140,8 @@
                         <label class="checkLabel" for="isNotImported">Nu </label>
                         <input class="isNotImported" name="gr_chck" type="checkbox" checked value="true">
 
-                        <!-- <label for="textarea">textarea</label>
-                        <textarea class="textarea">Ceva in textarea </textarea>  -->
+                        <label for="textarea">Nume Produs:</label>
+                        <textarea class="textarea"></textarea>
 
                         <label for="selectSimplu">Categoria: </label>
                         <select class="selectSimplu">
@@ -104,6 +163,8 @@
                         </select> -->
 
                         <button class="filterButton">Filtreaza</button>
+                        <button class="filterButton">Reseteaza</button>
+
 
                     </div>
 
@@ -120,6 +181,8 @@
                                     <a href="/femei/<%-prod.id %>"><img src="/Resources/Images/Products/Femei/<%-prod.imag%>" alt=""></a>
                                 </figure>
                                 <p class="descriere">Descriere: <span class=val-descriere><%- prod.description%></span></p>
+                                <p class="imported">Este importat: <span class=val-import><%- prod.is_imported%></span></p>
+
                                 <label class="selecteaza-cos">
                                     Selecteaza: <br>
                                     <input type="checkbox" class= "select-cos" value="<%- prod.id%>" autocomplete="off">

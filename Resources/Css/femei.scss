@@ -133,6 +133,10 @@ label {
 }
 
 .descriere {
+    display: block;
+}
+
+.imported {
     display: none;
 }
 
@@ -145,17 +149,23 @@ label {
     font-size: 16px;
     transition-duration: 0.4s;
     cursor: pointer;
-    margin-left: 2%;
+    margin-left: 1%;
     background-color: $color3;
     color: black;
     border: 2px solid $color1;
-    width: auto;
-    height: 10%;
+    width: min-content;
+    height: min-content;
 }
 
 .filterButton:hover {
     background-color: $color1;
     color: white;
+}
+
+.textarea {
+    width: fit-content;
+    height: fit-content;
+    margin-right: 1%;
 }
 
 // Styling Cross-Browser Compatible Range Inputs with Sass
