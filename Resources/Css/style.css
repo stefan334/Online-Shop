@@ -156,6 +156,7 @@ nav.scroll .logo {
   color: #9e4692;
   -webkit-transition: all ease 0.8s;
   transition: all ease 0.8s;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 nav.scroll a {
@@ -166,6 +167,15 @@ nav.scroll a {
 
 nav.scroll .submeniu {
   background: rgba(69, 19, 17, 0.4);
+}
+
+nav.scroll .submeniu a {
+  color: #E3C9C8;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+nav.scroll .submeniu a:hover {
+  color: #9e4692;
 }
 
 @-webkit-keyframes growDown {
