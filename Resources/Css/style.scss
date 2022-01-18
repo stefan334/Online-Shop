@@ -25,7 +25,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100vh 30vh 30vh 30vh auto;
-    grid-template-areas: "zona1 zona1 zona1" "zona3 zona2 zona4" "zona5 zona2 zona4" "zona5 zona6 zona7" "zona8 zona8 zona8";
+    grid-template-areas: "zona1 zona1 zona1" "zona3 zona2 zona4" "zona5 zona2 zona4" "zona5 zona2 zona7" "zona8 zona8 zona8";
 }
 
 .mainshopdiv {
@@ -33,6 +33,23 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 100vh 2vh 70vh;
     grid-template-areas: "column1 column1 column1" "colbr colbr colbr" "column2 column3 column3";
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10vh 10vh;
+    text-align: center;
+}
+
+.footer1 {
+    text-align: left;
+    margin-left: 1vw;
+}
+
+.footer2 {
+    text-align: right;
+    margin-right: 1vw;
 }
 
 .tableindex td,

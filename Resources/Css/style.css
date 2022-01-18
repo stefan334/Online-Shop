@@ -7,6 +7,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+  position: absolute;
+  z-index: -1;
 }
 
 .zona1 img {
@@ -27,6 +29,9 @@ header nav {
   width: 100%;
   position: fixed;
   background: transparent;
+  -webkit-transition: all ease .85s;
+  transition: all ease .85s;
+  z-index: 100;
 }
 
 header nav #hamburger {
@@ -77,6 +82,7 @@ header .main .fas.fa-home {
 
 header li {
   width: 15vw;
+  display: inline-block;
 }
 
 header li a {
@@ -89,6 +95,7 @@ header li a {
 }
 
 header li:hover .submeniu {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -132,6 +139,33 @@ header li .first:hover {
   50% {
     opacity: 0.7;
   }
+}
+
+nav.scroll {
+  padding: 0px;
+  background: rgba(69, 19, 17, 0.8);
+  position: fixed;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  border-bottom: 4px solid rgba(173, 113, 165, 0.8);
+}
+
+nav.scroll .logo {
+  margin-top: 5px;
+  position: absolute;
+  color: #9e4692;
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+nav.scroll a {
+  -webkit-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  color: #9e4692;
+}
+
+nav.scroll .submeniu {
+  background: rgba(69, 19, 17, 0.4);
 }
 
 @-webkit-keyframes growDown {
@@ -252,6 +286,9 @@ header li .first:hover {
   }
   header nav .main li {
     width: 100%;
+  }
+  header nav .main li:hover .submeniu {
+    position: relative;
   }
   header nav .main li a {
     color: white;
@@ -422,6 +459,10 @@ main .zona8 #linkuri .iframe {
   z-index: 1000;
   border: 4px solid black;
   border-style: double;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media print {
@@ -442,23 +483,23 @@ main .zona8 #linkuri .iframe {
   header .logo {
     text-align: center;
   }
-  header .main {
+  header .nav {
     display: block;
     list-style-type: disc;
   }
-  header .main .submeniu {
+  header .nav .submeniu {
     list-style-type: disc;
     display: block;
     background: none;
     color: black;
   }
-  header .main .submeniu ul {
+  header .nav .submeniu ul {
     display: block;
   }
-  header .main .submeniu li {
+  header .nav .submeniu li {
     display: block;
   }
-  header .main .submeniu li a {
+  header .nav .submeniu li a {
     display: block;
   }
   a {
@@ -2816,7 +2857,7 @@ body {
       grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: 100vh 30vh 30vh 30vh auto;
       grid-template-rows: 100vh 30vh 30vh 30vh auto;
-      grid-template-areas: "zona1 zona1 zona1" "zona3 zona2 zona4" "zona5 zona2 zona4" "zona5 zona6 zona7" "zona8 zona8 zona8";
+      grid-template-areas: "zona1 zona1 zona1" "zona3 zona2 zona4" "zona5 zona2 zona4" "zona5 zona2 zona7" "zona8 zona8 zona8";
 }
 
 .mainshopdiv {
@@ -2827,6 +2868,26 @@ body {
   -ms-grid-rows: 100vh 2vh 70vh;
       grid-template-rows: 100vh 2vh 70vh;
       grid-template-areas: "column1 column1 column1" "colbr colbr colbr" "column2 column3 column3";
+}
+
+.footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 10vh 10vh;
+      grid-template-rows: 10vh 10vh;
+  text-align: center;
+}
+
+.footer1 {
+  text-align: left;
+  margin-left: 1vw;
+}
+
+.footer2 {
+  text-align: right;
+  margin-right: 1vw;
 }
 
 .tableindex td,
@@ -2866,7 +2927,7 @@ body {
 .zona2 {
   text-align: center;
   -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
+  -ms-grid-row-span: 3;
   -ms-grid-column: 2;
   grid-area: zona2;
   padding: 10px;
@@ -2886,7 +2947,7 @@ body {
   -ms-grid-row-span: 2;
   -ms-grid-column: 3;
   grid-area: zona4;
-  background-color: #b2c793;
+  background-color: #9e4692;
   padding: 10px;
   text-align: center;
 }
@@ -2901,8 +2962,6 @@ body {
 }
 
 .zona6 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 2;
   grid-area: zona6;
   background-color: #AD71A5;
   overflow: hidden;

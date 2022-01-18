@@ -10,6 +10,7 @@
     z-index: 1000;
     border: 4px solid black;
     border-style: double;
+    user-select: none;
 }
 
 @media print {
@@ -30,7 +31,7 @@
         .logo {
             text-align: center;
         }
-        .main {
+        .nav {
             display: block;
             list-style-type: disc;
             .submeniu {

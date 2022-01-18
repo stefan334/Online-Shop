@@ -1,3 +1,4 @@
+@import "./variables.scss";
 header {
     z-index: 1;
     position: relative;
@@ -11,6 +12,8 @@ header {
         width: 100%;
         position: fixed;
         background: transparent;
+        transition: all ease .85s;
+        z-index: 100;
     }
     .main {
         font-size: 130%;
@@ -51,6 +54,7 @@ header {
             text-decoration: none;
         }
         &:hover .submeniu {
+            position: absolute;
             display: flex;
             flex-direction: column;
         }
@@ -80,7 +84,32 @@ header {
                 }
             }
         }
+        display:inline-block;
     }
+}
+
+nav.scroll {
+    padding: 0px;
+    background: rgba($color2, 0.8);
+    position: fixed;
+    transition: all ease 0.8s;
+    border-bottom: 4px solid rgba($color1, 0.8);
+}
+
+nav.scroll .logo {
+    margin-top: 5px;
+    position: absolute;
+    color: $color4;
+    transition: all ease 0.8s;
+}
+
+nav.scroll a {
+    transition: all ease 0.8s;
+    color: $color4;
+}
+
+nav.scroll .submeniu {
+    background: rgba($color2, 0.4);
 }
 
 @keyframes growDown {
@@ -154,6 +183,9 @@ header {
                 position: absolute;
                 width: 100%;
                 li {
+                    &:hover .submeniu {
+                        position: relative;
+                    }
                     width: 100%;
                     a {
                         color: white;

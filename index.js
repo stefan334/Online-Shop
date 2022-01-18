@@ -6,6 +6,12 @@ const sass = require('sass');
 const path = require('path');
 const { Client } = require('pg');
 
+//schimbare aici
+
+
+
+
+
 
 var app = express();
 const port = process.env.PORT || 8080;
