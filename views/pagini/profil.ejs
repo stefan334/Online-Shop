@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Profil</title>
+    <%- include("../fragmente/head") %>
+
+        <link rel="stylesheet" type="text/css" href="/Resources/Css/style.css" />
+        <script>
+            // populez inputurile din pagina de profil cu datele din tabel (incarcate prin EJS)
+            window.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("inp-username").value = "<%= locals.utilizator.username %>";
+                document.getElementById("inp-username").readOnly = true;
+                document.getElementById("inp-nume").value = "<%= locals.utilizator.nume %>";
+                document.getElementById("inp-prenume").value = "<%= locals.utilizator.prenume %>";
+                document.getElementById("inp-email").value = "<%= locals.utilizator.email %>";
+                document.getElementById("p-reintrod").remove();
+                var optiuni = document.getElementById("sel-culoare").options
+                for (let opt of optiuni)
+                    if (opt.value == "<%= locals.utilizator.culoare_chat %>")
+                        opt.selected = true;
+            });
+        </script>
+</head>
+
+<body class="container">
+    <header>
+        <%- include("../fragmente/header") %>
+    </header>
+    <main>
+        <img class="background" src="/Resources/Images/background_reg.jpg" alt="background">
+        <div class="maindivreg">
+            <div class="content">
+
+                <section>
+                    <h2>Profil</h2>
+                    <p>Aici iti poti edita profilul</p>
+                    <p>
+                        <%= locals.mesaj %>
+                    </p>
+                </section>
+                <%- include("../fragmente/formular",{action:"/profil"}) %>
+
+            </div>
+        </div>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+
+</body>
+
+</html>

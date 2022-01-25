@@ -3,6 +3,7 @@ header {
     z-index: 1;
     position: relative;
     nav {
+        top: 7%;
         #hamburger {
             display: none;
         }
@@ -89,6 +90,7 @@ header {
 }
 
 nav.scroll {
+    top: 0%;
     padding: 0px;
     background: rgba($color2, 0.8);
     position: fixed;

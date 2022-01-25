@@ -1,0 +1,59 @@
+.maindivreg {
+    padding: 11%;
+    text-align: center;
+    margin: auto;
+    font-size: larger;
+    h1 {
+        padding: 3%;
+    }
+}
+
+form {
+    font-size: larger;
+    label {
+        color: $color2;
+    }
+}
+
+.content {
+    padding: 40px;
+    margin: auto;
+    width: 98%;
+    background-color: rgba($color3, 0.7);
+    box-shadow: 0 4px 8px 0 rgba($color1, 0.7);
+}
+
+.background {
+    opacity: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.submit {
+    margin-top: 1rem;
+    text-decoration: none;
+    padding: .5em;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    display: inline-block;
+    border: 1.5px solid black;
+    transition: 0.3s;
+    background-color: transparent;
+    color: $color3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    &:hover {
+        cursor: pointer;
+        box-shadow: inset 0px 7px 15px 0px rgba(0, 0, 0, 0.60);
+        color: white;
+        // background-color: $color2;
+    }
+}

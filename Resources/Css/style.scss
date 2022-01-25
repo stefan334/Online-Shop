@@ -5,13 +5,33 @@
 @import "./mainshopdiv";
 @import "./print";
 @import "./gallery";
+@import "./inregistrare";
+@import "./login";
 // @import "./galerie_animata";
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    position: relative;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 0.2rem;
+    color: var(--cl-text);
+}
+
+#calendar div:nth-child(n+8).zi {
+    border: 1px solid black;
+}
+
+#calendar div:nth-child(n+8).eveniment {
+    background-color: $color3;
 }
 
 body {
     background-color: $color3;
+    margin-bottom: 20vh;
 }
 
 * {
@@ -38,7 +58,7 @@ body {
 .footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 10vh 10vh;
+    grid-template-rows: 100px;
     text-align: center;
 }
 
@@ -119,6 +139,10 @@ body {
 
 .zona7 {
     grid-area: zona7;
+    text-align: center;
+    ul {
+        list-style-type: none;
+    }
 }
 
 .zona8 {
@@ -139,7 +163,11 @@ body {
 }
 
 footer {
+    height: 100px;
     background-image: linear-gradient(180deg, $color3, rgba(121, 32, 76, 0.548));
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 }
 
 @media(max-width:500px) {

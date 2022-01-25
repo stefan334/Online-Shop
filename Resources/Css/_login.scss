@@ -1,0 +1,103 @@
+.login {
+    label,
+    .loginbutton {
+        color: $color3;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+}
+
+.imgprofil {
+    right: 4%;
+    width: 55px;
+    height: 55px;
+    margin: 5px;
+    position: absolute;
+    display: block;
+    border-radius: 60px;
+    border: 3px solid $color1;
+    margin-top: 2rem;
+}
+
+.login {
+    position: absolute;
+    display: block;
+}
+
+.logininput {
+    position: relative;
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.logout {
+    text-align: center;
+    right: 8%;
+    background-color: transparent;
+    padding: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: absolute;
+    display: block;
+    margin-top: 2.5rem;
+    text-decoration: none;
+    border-radius: 15px;
+    color: black;
+    border: 1.5px solid black;
+    transition: 0.3s;
+    &:hover {
+        box-shadow: inset 0px 7px 15px 0px rgba(0, 0, 0, 0.60);
+        color: white;
+        // background-color: $color2;
+    }
+}
+
+.inreg {
+    text-decoration: none;
+    padding: .5em;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    margin-left: 1rem;
+    display: inline-block;
+    border: 1.5px solid black;
+    transition: 0.3s;
+    background-color: transparent;
+    color: $color3;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    &:hover {
+        cursor: pointer;
+        box-shadow: inset 0px 7px 15px 0px rgba(0, 0, 0, 0.60);
+        color: white;
+        // background-color: $color2;
+    }
+}
+
+.loginbutton {
+    background-color: $color1;
+    text-decoration: none;
+    background-color: $color1;
+    padding: .5em;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 15px;
+    border: none;
+    display: block;
+    background-color: transparent;
+    border: 1.5px solid black;
+    transition: 0.3s;
+}
+
+.loginbutton:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 7px 15px 0px rgba(0, 0, 0, 0.60);
+    color: white;
+    // background-color: $color2;
+}
+
+.logbuttons {
+    margin-left: 24rem;
+    margin-top: -8px;
+    display: flex;
+}

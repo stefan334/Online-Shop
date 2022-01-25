@@ -1,69 +1,105 @@
 <header>
 
-    <nav>
-        <div class="logo">
-            <h1><i class="fas fa-tshirt fa-xs"></i>NULL</h1>
+    <% if (!locals.utilizator) { %>
+        <div class="login">
 
+
+            <form id="login" method="post" action="/login">
+
+                <label class="logininput">
+                Username: <input type="text" name="username" value="" class="login">
+            </label>
+                <label class="logininput">
+                Parola: <input type="password" name="parola" value="" class="login">
+            </label>
+                <div class="logbuttons">
+                    <input class="loginbutton" type="submit" value="Login">
+                    <a class="inreg" href="/inregistrare">Inregistrare</a>
+                </div>
+            </form>
+
+
+            <% if(locals.mesajLogin) {%>
+                <p style='color:red'>Eroare:
+                    <%- locals.mesajLogin %>
+                </p>
+                <% } %>
+                    <% } else { %>
+                        <% if(locals.utilizator.imagine){ %>
+                            <a href="/profil"> <img class="imgprofil" src="<%-locals.utilizator.imagine%>" alt="profil" > </a>
+                            <% }else{ %>
+                                <a href="/profil"> <img class="imgprofil" src="/Resources/poze_uploadate/default/default.jpg" alt="profilDefault"></a>
+                                <% } %>
+                                    <a class="logout" href="/logout">Log Out</a>
+
+
+                                    <% } %>
         </div>
-        <!--6-->
-        <label id="hamburger" for="ch-menu">
+        <nav>
+            <div class="logo">
+                <h1><i class="fas fa-tshirt fa-xs"></i>NULL</h1>
+
+            </div>
+            <!--6-->
+            <label id="hamburger" for="ch-menu">
             <i class="fas fa-bars fa-2x"></i>
         </label>
-        <input id="ch-menu" type="checkbox">
+            <input id="ch-menu" type="checkbox">
 
-        <ul class="main">
-            <li><a class="first" href="/"><i class="fas fa-home"></i><p class = "home">Pagina principala</p></a>
-                <ul class="submeniu">
-                    <li><a class="second" href="/index#descriere"><i class="fas fa-arrow-right"></i>Descriere</a></li>
-                    <li> <a class="second" href="/index#oferte"><i class="fas fa-arrow-right"></i>Oferte</a></li>
-                    <li> <a class="second" href="/index#linkuri"><i class="fas fa-arrow-right"></i>Styling</a></li>
-                    <li><a class="second" href="/index#parteneri"><i class="fas fa-arrow-right"></i>Parteneri</a></li>
-                </ul>
-            </li>
-            <li><a class="first" href="/barbati">Barbati</a>
-                <ul class="submeniu">
-                    <li><a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Hanorace si geci</a></li>
+            <ul class="main">
+                <li><a class="first" href="/"><i class="fas fa-home"></i><p class = "home">Pagina principala</p></a>
+                    <ul class="submeniu">
+                        <li><a class="second" href="/index#descriere"><i class="fas fa-arrow-right"></i>Descriere</a></li>
+                        <li> <a class="second" href="/index#oferte"><i class="fas fa-arrow-right"></i>Oferte</a></li>
+                        <li> <a class="second" href="/index#linkuri"><i class="fas fa-arrow-right"></i>Styling</a></li>
+                        <li><a class="second" href="/index#parteneri"><i class="fas fa-arrow-right"></i>Parteneri</a></li>
+                    </ul>
+                </li>
+                <li><a class="first" href="/barbati">Barbati</a>
+                    <ul class="submeniu">
+                        <li><a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Hanorace si geci</a></li>
 
-                    <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Tricouri</a></li>
+                        <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Tricouri</a></li>
 
-                    <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Bluze</a></li>
+                        <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Bluze</a></li>
 
-                    <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Pantaloni</a></li>
-                </ul>
-            </li>
+                        <li> <a class="second" href="index.html"><i class="fas fa-arrow-right"></i>Pantaloni</a></li>
+                    </ul>
+                </li>
 
-            <li><a class="first" href="/femei">Femei</a>
-                <ul class="submeniu">
-                    <li> <a class="second" href="/femei?tip=Hanorace si Geci"><i class="fas fa-arrow-right"></i>Hanorace si geci</a></li>
+                <li><a class="first" href="/femei">Femei</a>
+                    <ul class="submeniu">
+                        <li> <a class="second" href="/femei?tip=Hanorace si Geci"><i class="fas fa-arrow-right"></i>Hanorace si geci</a></li>
 
-                    <li> <a class="second" href="/femei?tip=Tricouri si Maieuri"><i class="fas fa-arrow-right"></i>Tricouri si Maieuri</a></li>
+                        <li> <a class="second" href="/femei?tip=Tricouri si Maieuri"><i class="fas fa-arrow-right"></i>Tricouri si Maieuri</a></li>
 
-                    <li> <a class="second" href="/femei?tip=Bluze si Pulovere"><i class="fas fa-arrow-right"></i>Bluze si Pulovere</a></li>
+                        <li> <a class="second" href="/femei?tip=Bluze si Pulovere"><i class="fas fa-arrow-right"></i>Bluze si Pulovere</a></li>
 
-                    <li> <a class="second" href="/femei?tip=Accesorii"><i class="fas fa-arrow-right"></i>Accesorii</a></li>
+                        <li> <a class="second" href="/femei?tip=Accesorii"><i class="fas fa-arrow-right"></i>Accesorii</a></li>
 
-                    <li> <a class="second" href="/femei?tip=Pantaloni"><i class="fas fa-arrow-right"></i>Pantaloni</a></li>
+                        <li> <a class="second" href="/femei?tip=Pantaloni"><i class="fas fa-arrow-right"></i>Pantaloni</a></li>
 
-                    <li> <a class="second" href="/femei?tip=Rochii"><i class="fas fa-arrow-right"></i>Rochii</a></li>
-                </ul>
-            </li>
-            <li><a class="first" href="/gallery">Galerie</a>
+                        <li> <a class="second" href="/femei?tip=Rochii"><i class="fas fa-arrow-right"></i>Rochii</a></li>
+                    </ul>
+                </li>
+                <li><a class="first" href="/gallery">Galerie</a>
 
-            </li>
+                </li>
 
-        </ul>
-    </nav>
-    <script>
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', function() {
-            const offset = window.pageYOffset;
+            </ul>
 
-            if (offset > 75) {
-                nav.classList.add('scroll')
-            } else {
-                nav.classList.remove('scroll')
-            }
-        });
-    </script>
+        </nav>
+        <script>
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', function() {
+                const offset = window.pageYOffset;
+
+                if (offset > 75) {
+                    nav.classList.add('scroll')
+                } else {
+                    nav.classList.remove('scroll')
+                }
+            });
+        </script>
 
 </header>

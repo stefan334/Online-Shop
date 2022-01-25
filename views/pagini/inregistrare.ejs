@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <!--meta-->
+    <meta name="description" content="NULL Shop - inregistrare utilizatori.">
+    <meta name="keywords" content="NULL, inregistrare, utilizatori">
+
+    <%- include("../fragmente/head.ejs") %>
+
+        <script type="text/javascript" src=/Resources/js/inregistrare.js></script>
+
+        <!--3-->
+
+</head>
+
+
+<body>
+    <%- include("../fragmente/header") %>
+
+        <main>
+            <img class="background" src="/Resources/Images/background_reg.jpg" alt="background">
+            <div class="maindivreg">
+
+                <div class="content">
+
+
+                    <h1>Inregistrare utilizator</h1>
+
+                    <% if (locals.err !="") { %>
+                        <%-include("../fragmente/formular", {action: "/inreg"}) %>
+                            <% } %>
+                                <% if(locals.raspuns) { %>
+                                    <%- locals.raspuns+"<br/>"%>
+                                        <% } %>
+                                            <% if(locals.err) { %>
+                                                <%- locals.err %>
+                                                    <% } %>
+                </div>
+
+            </div>
+        </main>
+
+        <footer>
+            <%- include("../fragmente/footer") %>
+        </footer>
+
+</body>
+
+</html>
