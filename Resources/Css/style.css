@@ -2919,6 +2919,7 @@ form label {
 }
 
 .imgprofil {
+  z-index: 100000;
   right: 4%;
   width: 55px;
   height: 55px;
