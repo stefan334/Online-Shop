@@ -26,7 +26,7 @@ header {
 }
 
 header nav {
-  top: 7%;
+  top: 8%;
   width: 100%;
   position: fixed;
   background: transparent;
@@ -2943,7 +2943,7 @@ form label {
 
 .logout {
   text-align: center;
-  right: 8%;
+  right: 9%;
   background-color: transparent;
   padding: 10px;
   padding-left: 12px;
