@@ -44,7 +44,7 @@ app.use(session({
 
 app.use("/*", function(req, res, next) {
     res.locals.utilizator = req.session.utilizator;
-    //TO DO de adaugat vectorul de optiuni pentru meniu (sa se transmita pe toate paginile)
+
     next();
 });
 
@@ -62,7 +62,7 @@ app.use("/*", function(req, res, next) {
 
 if (process.env.SITE_ONLINE) {
     protocol = "https://";
-    numeDomeniu = "afternoon-mesa-21541.herokuapp.com" //atentie, acesta e domeniul pentru aplicatia mea; voi trebuie sa completati cu datele voastre
+    numeDomeniu = "afternoon-mesa-21541.herokuapp.com"
     client = new Client({
         user: "wupkgabvvfnbjv",
         password: '7ae44c0d17f5050db2e3dc2b8c54ba3b9eecf4ff78c140e91b2b999039f39aa5',
@@ -94,7 +94,7 @@ app.use(function(req, res, next) {
     timp_curent = new Date();
     if (ip_gasit) {
 
-        if ((timp_curent - ip_gasit.data) < 5 * 1000) { //diferenta e in milisecunde; verific daca ultima accesare a fost pana in 10 secunde
+        if ((timp_curent - ip_gasit.data) < 20 * 1000) { //diferenta e in milisecunde; verific daca ultima accesare a fost pana in 10 secunde
             if (ip_gasit.nr > 10) { //mai mult de 10 cereri 
                 res.send("<h1>Prea multe cereri intr-un interval scurt. Ia te rog sa fii cuminte, da?!</h1>");
                 ip_gasit.data = timp_curent
@@ -344,8 +344,6 @@ async function trimitefactura(username, email, numefis) {
 
 
 
-
-
 app.post("/produse_cos", function(req, res) {
 
     //console.log("req.body: ",req.body);
@@ -504,15 +502,7 @@ function genereazaToken(lungime) {
 }
 
 
-/*
-Pentru task trebuie sa folositi o adresa de gmail creata de voi! Nu folositi cea data la curs fiindca parola e cunoscuta de toti si oricine o poate modifica
-Nu folositi o adresa de gmail reala ci faceti una speciala pentru proiect!!!!!!
-Pentru a pute folosi adresa de gmail trebuie sa :
-1) Mergeti Pe pagina de Google Account (Manage google account). Alegeti tabul security (in dreapta). Setati Less Secure App Access pe "On"
-2) Accesati https://accounts.google.com/b/0/DisplayUnlockCaptcha si dati click pe Continue - 
-- uneori DisplayUnlockCaptcha se reseteaza si trebuie sa intrati din nou pe link daca vedeti ca nu merge trimiterea mailului. Problema e de la Heroku care schimba ip-ul fiindca folosim o versiune free
 
-*/
 
 async function trimiteMail(nume, prenume, username, email, token) {
     var transp = nodemailer.createTransport({
@@ -566,8 +556,6 @@ parolaCriptare = "curs_tehnici_web";
 
 
 
-//Tratarea linkurilor de confirmare a contului, trimise pe mail. Un link de confirmare arata cam asa:
-//http://localhost:8080/cod/prof68847/ITuZgIuj42z9067uqTfs69JjOM6wJWBS1c4fQzoKwgrfQfTTaMpsB6kS0yjD4TKlzSKL1wWjR7VWUyqAkjZyRejDcfxcpFVTHZSV
 
 app.get("/confirmare_mail/:token/:username", function(req, res) {
     var queryUpdate = `update utilizatori set confirmat_mail=true where username = '${req.params.username}' and cod= '${req.params.token}' `;
@@ -593,15 +581,15 @@ app.post("/inreg", function(req, res) {
     formular.parse(req, function(err, campuriText, campuriFile) { //4
         console.log(campuriText);
         console.log("Email: ", campuriText.email);
-        //verificari - TO DO
+
         var eroare = "";
         if (!campuriText.username)
             eroare += "Username-ul nu poate fi necompletat. ";
-        //TO DO - de completat pentru restul de campuri required
+
 
         if (!campuriText.username.match("^[A-Za-z]{1}[A-Za-z0-9]{0,5}[0-9]{4}$"))
             eroare += "Username-ul trebuie sa conțină maxim 10 caractere, să inceapă cu o literă și ultimele 4 caractere să fie cifre. ";
-        //TO DO - de completat pentru restul de campuri functia match
+
 
         if (eroare != "") {
             res.render("pagini/inregistrare", { err: eroare });
@@ -626,7 +614,7 @@ app.post("/inreg", function(req, res) {
                     var queryUtiliz = `insert into utilizatori (username, nume, prenume, parola, email, culoare_chat, cod, imagine) values ('${campuriText.username}','${campuriText.nume}','${campuriText.prenume}', $1 ,'${campuriText.email}','${campuriText.culoareText}','${token}', '/Resources/poze_uploadate/${username}/poza.jpg')`;
 
                     console.log(queryUtiliz, criptareParola);
-                    client.query(queryUtiliz, [criptareParola], function(err, rez) { //TO DO parametrizati restul de query
+                    client.query(queryUtiliz, [criptareParola], function(err, rez) {
                         if (err) {
                             console.log(err);
                             res.render("pagini/inregistrare", { err: "Eroare baza date" });
@@ -642,7 +630,7 @@ app.post("/inreg", function(req, res) {
             }
         });
     });
-    formular.on("field", function(nume, val) { // 1 pentru campuri cu continut de tip text (pentru inputuri de tip text, number, range,... si taguri select, textarea)
+    formular.on("field", function(nume, val) {
         console.log("----> ", nume, val);
         if (nume == "username")
             username = val;
@@ -661,7 +649,7 @@ app.post("/inreg", function(req, res) {
 
     })
     formular.on("file", function(nume, fisier) { //3
-        //s-a terminat de uploadat
+
         console.log("fisier uploadat");
     });
 
@@ -730,7 +718,7 @@ app.post("/profil", function(req, res) {
         console.log(campuriText);
         var criptareParola = crypto.scryptSync(campuriText.parola, parolaCriptare, 32).toString('hex');
         username = campuriText.username;
-        //toti parametrii sunt cu ::text in query-ul parametrizat fiindca sunt stringuri (character varying) in tabel
+
         var queryUpdate = `update utilizatori set nume=$1::text, prenume=$2::text, email=$3::text, culoare_chat=$4::text where username= $5::text and parola=$6::text `;
 
         client.query(queryUpdate, [campuriText.nume, campuriText.prenume, campuriText.email, campuriText.culoareText, req.session.utilizator.username, criptareParola], function(err, rez) {
@@ -758,7 +746,7 @@ app.post("/profil", function(req, res) {
 
 
     });
-    formular.on("field", function(nume, val) { // 1 pentru campuri cu continut de tip text (pentru inputuri de tip text, number, range,... si taguri select, textarea)
+    formular.on("field", function(nume, val) {
         console.log("----> ", nume, val);
         if (nume == "username")
             username = val;
@@ -959,8 +947,8 @@ app.post("/contact", function(req, res) {
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////////////// Cereri generale
 
-app.get("/favicon.ico", function(req, res) { //uneori browserul cere faviconul pentru a adauga paginain bookmarks sau in "pagini recente"
-    res.sendFile("./resources/imagini/favicon.ico");
+app.get("/favicon.ico", function(req, res) {
+    res.sendFile("/Resources/imagini/favicon.ico");
 });
 
 
